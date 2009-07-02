@@ -1,0 +1,28 @@
+$(function() {
+    $('#resources').sortable({
+        items: '.item.resource',
+        placeholder: 'highlight',
+        update: function() {
+            $.post("<%= sort_resources_path %>", $(this).sortable('serialize'));
+        }
+    });
+    $('#users > *').draggable({
+        connectToSortable: '#new_resource',
+        opacity: 0.7,
+        helper: 'clone'
+    });
+
+    $('#resources a.remove').live('click', function(){
+      if (confirm('Are you sure?')){
+        var aObj = $(this);
+        $.ajax({
+          type: 'DELETE',
+          url: this.href,
+          success: function() {
+            aObj.parents('.item').fadeOut("normal");
+          }
+        });
+      }
+      return false;
+    });
+});

@@ -1,0 +1,80 @@
+* script/plugin install git://github.com/rpheath/google_ajax_libraries_api.git
+* script/plugin install git://github.com/thoughtbot/paperclip.git
+  
+* script/plugin install git://github.com/rails/acts_as_list.git
+
+* script/generate controller Javascripts
+  map.js ':controller/:action.:format'
+
+
+Easy habtm drag-and-drop
+========================
+* See projects/edit.html.*
+* Uses jQueryUI
+
+Create
+------
+A new element is added when a LI item is dropped on #new_resource.
+This invokes the drop event and executes a POST to the resources controller (i.e. POST /projects/:project_id/resources)
+RESTful
+
+Destroy
+-------
+See javascripts/resources.js.*
+Via AJAX
+RESTful
+ 
+Change position
+---------------
+* Define custom route and call this in the update event of the jQueryUI sortable:
+
+  # routes.rb:
+  map.resources :resources, :collection => { :sort => :post }, :only => [:sort]
+  
+  # resources.js:
+  $('#resources').sortable({
+      items: '.item.resource',
+      placeholder: 'highlight',
+      update: function() {
+          $.post("<%= sort_resources_path %>", $(this).sortable('serialize'));
+      }
+  });
+  
+
+Nested Object Forms
+===================
+has many
+--------
+(Adding nested form partials is inspired by Inspired by http://github.com/alloy/complex-form-examples)
+
+* Define accepts_nested_attributes_for in parent model.
+
+* Define a JS var. (within form_for!) containing the partial for a new object:
+  # _form.html.erb:
+  <%= "var skill='#{generate_template(f, :skills)}'" %>
+  
+  # application_helper.rb
+  def generate_html(form_builder, method, options = {})
+    ...
+  end
+  
+* Through JS in application.js behaviour for adding new child forms is added to specific selectors.
+  For this the partial returned by generate_html is used.
+
+* child_index is replaced with a timestamp to create a unique set of keys:
+  >> user[skills_attributes][1246459962028][name]
+  
+has one
+-------
+* Define accepts_nested_attributes_for in parent model.
+* @project.build_projectmanager (!)
+* fields_for
+
+HAML
+====
+>> haml --rails .
+
+formtastic
+==========
+config.gem ...
+script/generate formtastic_stylesheets

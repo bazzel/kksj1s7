@@ -1,0 +1,5 @@
+<%- content_tag_for(:li, resource, :class => "item") do -%>
+  <h5><%=h resource.user.name %></h5>
+  <%= image_tag resource.user.photo.url(:small) %>
+  <%= link_to "Destroy", [@project, resource], :class => 'remove' %>
+<%- end -%>
