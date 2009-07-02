@@ -1,5 +1,5 @@
 form.formtastic{font-size:1.1em;color:#333;}
-form.formtastic fieldset ol li{display:block;}
+form.formtastic fieldset ol li{display:block;margin-bottom:0;}
 form.formtastic fieldset ol li ul.errors li{display:block;}
 form.formtastic fieldset ol li.required label abbr{color:red;padding-left:2px;}
 form.formtastic fieldset{display:block;margin-bottom:10px;border:none;border-top:1px solid #C9DCA6;background:url(/images/fieldset.gif) left bottom repeat-x;}
