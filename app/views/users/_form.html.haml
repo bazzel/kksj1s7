@@ -1,21 +1,14 @@
-- form_for @user, :html => { :multipart => true } do |f|
+- semantic_form_for @user, :html => { :multipart => true } do |f|
   - content_for :head do
     :javascript
       var skill='#{generate_template(f, :skills)}'
 
-  = f.error_messages
-  %p
-    = f.label :name
-    %br/
-    = f.text_field :name
-  %p
-    = f.label :photo
-    %br/
-    = f.file_field :photo
+  = f.inputs :name, :photo
 
   #skills
-    - f.fields_for :skills do |skill_form|
-      = render :partial => 'skill', :locals => { :f => skill_form }
+    - f.inputs do
+      - f.semantic_fields_for :skills do |skill|
+        = render(:partial => 'skill', :locals => {:f => skill})
 
   %p
     = link_to 'Add a skill', '#skill', :class => "add_nested_item", :rel => "skills"

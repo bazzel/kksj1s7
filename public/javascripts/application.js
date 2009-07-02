@@ -7,7 +7,7 @@ $(function(){
   // Inspired by http://github.com/alloy/complex-form-examples
   $('.add_nested_item').click(function(){
     template = eval(this.hash.replace(/.*#/, ''));
-    $("#" + this.rel).append(replace_ids(template));
+    $(replace_ids(template)).appendTo("#" + this.rel + ' > fieldset > ol');
     return false;
   });
   

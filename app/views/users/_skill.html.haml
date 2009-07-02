@@ -1,10 +1,5 @@
-.skill
-  %p
-    = f.label :name
-    = f.text_field :name
-    
-    = f.label :period
-    = f.text_field :period
-    
-    = f.label :_delete, "Remove:"
-    = f.check_box :_delete
+%li.skill
+  - f.inputs do
+    = f.input :name
+    = f.input :period
+    = f.input :_delete, :label => "Remove", :as => :boolean
