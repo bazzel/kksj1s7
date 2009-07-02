@@ -1,3 +1,9 @@
+This repo contains several tags:
+>> git tag
+To switch to a tag:
+>> git checkout [tag]
+
+
 * script/plugin install git://github.com/rpheath/google_ajax_libraries_api.git
 * script/plugin install git://github.com/thoughtbot/paperclip.git
   
