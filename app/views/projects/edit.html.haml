@@ -1,0 +1,35 @@
+-# If your JS contains Ruby code, put them in views/javascripts. See also http://railscasts.com/episodes/88-dynamic-select-menus
+- javascript 'resources'
+- content_for :head do
+  - # If your JS uses instance vars. defined in the controller, put your code here:
+  :javascript
+    $(function(){
+      $('#new_resource').droppable({
+          accept: '#users > li',
+          hoverClass: 'hover',
+          activeClass: 'active',
+          drop: function(event, ui) {
+              user_id = $(ui.draggable).attr("id").replace(/^user_/, '');
+              $.post('#{project_resources_path(@project)}', 'resource[user_id]=' + user_id, null, 'script');
+          }
+      })
+    });
+
+- title "Edit Project"
+
+#left
+  = render :partial => 'form'
+  
+#right
+  %ul#resources.items
+    = render :partial => '/resources/resource', :collection => @resources
+    %li#new_resource.item Drop here
+  %hr.clear/
+  %ul#users.items
+    = render :partial => '/users/user', :collection => @users
+
+%hr.clear/
+%p
+  = link_to "Show", @project
+  |
+  = link_to "View All", projects_path
