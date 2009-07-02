@@ -1,10 +1,18 @@
-/* -------------------------------------------------------------------------------------------------
-
-Load this stylesheet after formtastic.css in your layouts to override the CSS to suit your needs.
-This will allow you to update formtastic.css with new releases without clobbering your own changes.
-
-For example, to make the inline hint paragraphs a little darker in color than the standard #666:
-
-form.formtastic fieldset ol li p.inline-hints { color:#333; }
-
---------------------------------------------------------------------------------------------------*/
+form.formtastic{font-size:1.1em;color:#333;}
+form.formtastic fieldset ol li{display:block;}
+form.formtastic fieldset ol li ul.errors li{display:block;}
+form.formtastic fieldset ol li.required label abbr{color:red;padding-left:2px;}
+form.formtastic fieldset{display:block;margin-bottom:10px;border:none;border-top:1px solid #C9DCA6;background:url(/images/fieldset.gif) left bottom repeat-x;}
+form.formtastic fieldset ol li.string input{width:73%;}
+form.formtastic legend{padding:0 2px;font-weight:bold;_margin:0 -7px;/* IE Win */padding-left:0;}
+form.formtastic label{display:inline-block;line-height:1.8;vertical-align:top;width:120px;}
+form.formtastic fieldset ol{margin:0;padding:0;}
+form.formtastic fieldset li{list-style:none;padding:5px;margin:0;padding:5px 10px 7px;background:url(/images/divider.gif) left bottom repeat-x;}
+form.formtastic fieldset fieldset{border:none;margin:3px 0 0;}
+form.formtastic fieldset fieldset legend{padding:0 0 5px;font-weight:normal;}
+form.formtastic fieldset fieldset label{display:block;width:auto;}
+form.formtastic em{font-weight:bold;font-style:normal;color:#f00;}
+form.formtastic fieldset fieldset label{margin-left:123px;}
+form.formtastic legend,
+form.formtastic label{color:#333;}
+form.formtastic fieldset fieldset{background:none;}

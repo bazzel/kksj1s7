@@ -80,3 +80,4 @@ formtastic
 ==========
 config.gem ...
 script/generate formtastic_stylesheets
+validation_reflection plugin

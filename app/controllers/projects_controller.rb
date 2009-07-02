@@ -15,11 +15,9 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
     if @project.save
-      logger.debug "Ja"
       flash[:notice] = "Successfully created project."
       redirect_to @project
     else
-      logger.debug "Nee"
       render :action => 'new'
     end
   end
@@ -36,6 +34,8 @@ class ProjectsController < ApplicationController
       flash[:notice] = "Successfully updated project."
       redirect_to @project
     else
+      @resources = @project.resources
+      @users = User.all
       render :action => 'edit'
     end
   end

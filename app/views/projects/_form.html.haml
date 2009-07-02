@@ -1,34 +1,14 @@
-- form_for @project do |form|
-  = form.error_messages
-  %p
-    = form.label :name
-    %br/
-    = form.text_field :name
-  %p
-    = form.label :description
-    %br/
-    = form.text_area :description
-  %p
-    = form.label :start
-    %br/
-    = form.date_select :start
-  %p
-    = form.label :finish
-    %br/
-    = form.date_select :finish
-  
-  - form.fields_for :projectmanager do |child_form|
-    %p
-      = child_form.label :name
-      %br/
-      = child_form.text_field :name
-    %p
-      = child_form.label :email
-      %br/
-      = child_form.text_field :email
-    %p
-      = child_form.label :phone
-      %br/
-      = child_form.text_field :phone
+- semantic_form_for @project do |form|
+  - form.inputs :name => "Project" do
+    = form.input :name, :hint => "This field is required"
+    = form.input :description
+    = form.input :start
+    = form.input :finish
 
-  = form.submit "Submit"
+  - form.semantic_fields_for :projectmanager do |projectmanager|
+    - projectmanager.inputs :name => "Projectmanager" do
+      = projectmanager.input :name
+      = projectmanager.input :email
+      = projectmanager.input :phone
+
+  = form.submit
