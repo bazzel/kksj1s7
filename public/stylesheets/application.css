@@ -44,8 +44,8 @@ a {
 }
 
 #flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
+  background-color: #C9DCA6;
+  border: solid 1px black;
 }
 
 #flash_error {

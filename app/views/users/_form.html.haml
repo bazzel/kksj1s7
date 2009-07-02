@@ -5,7 +5,7 @@
 
   = f.inputs :name, :photo
 
-  #skills
+  #skills.nested
     - f.inputs do
       - f.semantic_fields_for :skills do |skill|
         = render(:partial => 'skill', :locals => {:f => skill})

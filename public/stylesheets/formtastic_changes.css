@@ -16,3 +16,8 @@ form.formtastic fieldset fieldset label{margin-left:123px;}
 form.formtastic legend,
 form.formtastic label{color:#333;}
 form.formtastic fieldset fieldset{background:none;}
+
+form.formtastic .nested fieldset ol li fieldset ol {padding: 0;width:100%;}
+form.formtastic .nested fieldset ol li fieldset ol li {float: left; clear: left;background: none;}
+form.formtastic .nested fieldset ol li fieldset ol li label {margin-left: 0;}
+form.formtastic .nested fieldset ol li fieldset ol li input {float: left; width: 70%;}
